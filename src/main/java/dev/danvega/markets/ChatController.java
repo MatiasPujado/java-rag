@@ -20,6 +20,7 @@ public class ChatController {
     @GetMapping("/")
     public String chat() {
         return chatClient.prompt()
+                .system("You are an assistant that answers questions based on the provided context. Use ONLY the information from the context to answer the question. If the context doesn't contain relevant information, say that you don't have enough information to answer.")
                 .user("How did the Federal Reserve's recent interest rate cut impact various asset classes according to the analysis")
                 .call()
                 .content();

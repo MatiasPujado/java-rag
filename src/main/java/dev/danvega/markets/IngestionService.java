@@ -39,8 +39,7 @@ public class IngestionService implements CommandLineRunner {
     log.info("Embedding Model Dimensions: {}", dimensions);
 
     vectorStore.createObservationContextBuilder("vector_store")
-      .withDimensions(dimensions)
-      .build();
+      .withDimensions(dimensions);
 
     vectorStore.accept(textSplitter.apply(pdfReader.get()));
     log.info("VectorStore Loaded with data!");
